@@ -127,6 +127,16 @@ GROUP by department_id
 ORDER by total_employees DESC;
 
 -----------------------------------------------------
+-- Insert employee with no matching department
+-----------------------------------------------------
+INSERT INTO employees VALUES
+(7, 'Rachel', 40, 52000);
+
+-- Department with no employees
+INSERT INTO departments VALUES
+(50, 'Marketing');
+
+-----------------------------------------------------
 -- JOINS
 -- Inner join, Left join, Right join, Full join
 -----------------------------------------------------
