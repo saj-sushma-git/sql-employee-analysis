@@ -204,11 +204,41 @@ FROM departments;
 -- ANALYSIS QUERIES
 --------------------------------------------------------
 
+-- Find employee with highest salary
+SELECT emp_name, salary
+FROM employees
+ORDER by salary DESC
+limit 1;
+
+
 -- Find top 3 highest paid employees
 SELECT * 
 FROM employees
 ORDER BY salary DESC
 LIMIT 3;
+
+-- Count employees in each department
+SELECT department_id, count(*) as total_employees
+FROM employees
+GROUP by department_id;
+
+
+-- Find department with highest average salary
+SELECT department_name, AVG(e.salary) AS Average_Salary
+FROM employees e
+JOIN departments d
+ON e.department_id = d.department_id
+GROUP by department_name
+ORDER BY Average_Salary DESC;
+
+
+-- Find the employees earning above overall average salary
+SELECT emp_name, salary
+FROM employees
+WHERE salary > (
+  	SELECT AVG(salary)
+  	FROM employees
+		);
 
 
 
